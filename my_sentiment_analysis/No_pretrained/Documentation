@@ -1,0 +1,44 @@
+DOCUMENTATION OF SENTIMENT PREDICTOR CODE : SELF EMBEDDINGS
+
+Read the csv of the dataset through pandas
+
+Define the two columns of the dataframe
+
+Data Cleaning: Tokenize the data. Remove the hashtags, links etc.
+
+Dataframe contains two columns now: 'sentiment' and the 'cleaned text'
+
+This dataframe is now saved as csv named as: 'cleaned_text.csv'
+
+Now, we read this csv and then use it for splitting the dataset into : test and train datasets in 1:10 ratio.
+
+To use Keras on text data, we first have to preprocess it. For this, we can use Keras' Tokenizer class. This object takes as argument num_words(8000) which is the maximum number of words kept after tokenization based on their word frequency.
+
+Once the tokenizer is fitted on the data, we can use it to convert text strings to sequences of numbers.
+
+The tokenizer turns it into a sequence of digits on train and test sequences.
+
+Now the tweets are mapped to lists of integers. However, we still cannot stack them together in a matrix since they have different lengths. Hopefully Keras allows to pad sequences with 0s to a maximum length. We'll set this length to 35. (which is the maximum numbers of tokens in the tweets).
+
+Now the data is ready to be fed to an RNN.
+
+Here are some elements of the architecture I'll be using:
+
+	An embedding dimension of 300. This means that each word from the 80000 that we'll be using is mapped to a 300-dimension dense vector (of float numbers). The mapping will adjust throughout the training.
+
+	A spatial dropout is applied on the embedding layer to reduce overfitting: it basically looks at batches of 35x300 matrices and randomly drop (set to 0) word vectors (i.e rows) in each matrix. This helps not to focus on specific words in an attempt to generalize well.
+
+	A bidirectional Gated Recurrent Unit (GRU): this is the recurrent network part. It's a faster variant of the LSTM architecture. Think of it as a combination of two recurrent networks that scan the text sequence in both directions: from left to right and from right to left. This allows the network, when reading a given word, to understand it by using the context from both past and future information. The GRU takes as parameter a number of units which is the dimension of the output h_t of each network block. We will set this number to 100. And since we are using a bidirectional version of the GRU, the final output per RNN block will be of dimension 200.
+
+The output of the bidirectional GRU has the dimension (batch_size, timesteps, units). This means that if we use a typical batch size of 256, this dimension will be (256, 35, 200)
+
+	On top of every batch, we apply a global average pooling that consists in averaging the output vectors corresponding to the each time step (i.e the words)
+
+	We apply the same operation with max pooling.
+
+	We concatenate the outputs of the two previous operations.
+
+During the training, model checkpoint is used. It allows to automatically save (on disk) the best models (w.r.t accuracy measure) at the end of each epoch.
+
+
+Usage of tqdm: For file processing progress bar. makes your loops show a smart progress meter.
