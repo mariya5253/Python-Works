@@ -1,0 +1,47 @@
+Invoice
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Kantech Solutions Private Limited Invoice date | Vijaya Traders Private Limited
+Ground Floor, Building 2A, 23 & 24 30/06/2017 | 5/1, Penthouse 01, 6th Floor, Rich
+AMIR Tech Park Interal Rd, Hongasandra Homes Apartment , Richmond Road
+Bengaluru, Kamataka 560068 Due date | Bengaluru, Kamataka 880025
+GSTIN O4ARCPD98743125 140712017 | @sTIN O4ARCPD987431Z5
+Invoice number
+1
+Description HSN aty Unit price Tax ‘Amount
+‘Shampoo s4ortit1 40,000 40.00 | cast 14%+sest 14% | 1,00,000.00
+‘Soap 34011110 5,000 800 | cest9%+scsT 9% 25,000.00
+‘Sub-total | © 1,25,000.00
+cost | = 16,250.00
+sest | © 16,250.00
+Total | €1,57,500.00
+Total in words
+
+Rupees One Lakh Fifty Seven Thousand Five Hundred
