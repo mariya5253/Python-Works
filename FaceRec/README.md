@@ -1,4 +1,4 @@
-# FaceRec
+# Face Recognition using facial embedding
 A simple working facial recognition program.
 
 
