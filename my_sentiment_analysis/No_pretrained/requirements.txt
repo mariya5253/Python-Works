@@ -116,7 +116,7 @@ parso==0.3.2
 pickleshare==0.7.5
 Pillow==5.4.1
 Pint==0.9
-pipenv==2018.11.26
+pipenv==2022.1.8
 plac==0.9.6
 preshed==2.0.1
 prometheus-client==0.5.0
